@@ -48,6 +48,14 @@ test(
     const events = await client.getEventsByEventHandle(tx.sender, "0x1::TestCoin::TransferEvents", "sent_events");
     expect(events[0].type).toBe("0x1::TestCoin::SentEvent");
 
+    const event_subset = await client.getEventsByEventHandle(
+      tx.sender,
+      "0x1::TestCoin::TransferEvents",
+      "sent_events",
+      { start: 0, limit: 1 },
+    );
+    expect(event_subset[0].type).toBe("0x1::TestCoin::SentEvent");
+
     const events2 = await client.getEventsByEventKey(events[0].key);
     expect(events2[0].type).toBe("0x1::TestCoin::SentEvent");
   },
