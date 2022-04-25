@@ -255,8 +255,8 @@ globs = ["developer-docs-site/**/*", "documentation/**/*", "docker/**/*", "langu
 mark-changed = []
 
 [[determinator.path-rule]]
-# Ignore typescript
-globs = ["ecosystem/typescript/**/*", "ecosystem/web-wallet/**/*"]
+# Ignore typescript sdk
+globs = ["ecosystem/typescript/**/*"]
 mark-changed = []
 
 [[determinator.path-rule]]
